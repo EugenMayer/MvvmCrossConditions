@@ -31,7 +31,7 @@ namespace MvvmCross.Conditions.Touch
             // TODO: use an as cast with an null check instead?
             if (ImplementsInterface(request.ViewModelType, typeof(IConditionalViewModel))) {
                 // check condition here
-                var loader = Mvx.Resolve<IMvxViewModelLoader>() as IMvxViewModelPreloader;
+                var loader = Mvx.Resolve<IMvxViewModelLoader>();
                 var viewModel = loader.LoadViewModel(request, null) as IConditionalViewModel;
                 if (viewModel.Precondition(viewModelShouldHandleError) == false) {
                     if (viewModelShouldHandleError) {
