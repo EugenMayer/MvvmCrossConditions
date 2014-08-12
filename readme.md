@@ -19,3 +19,6 @@ Please see the ExampleSetup.cs to see how you enable your app to use the Dispatc
 - ConditionalTouchPresenter this needs to be used to actually have any use of the conditions
 - ConditionalTouchDispatcher example implementation for the dispatcher, can be used out of the box and should be working for your cases in general ( no need to reimplement it)
 
+## TODO
+- Use nuget for all the project references for MvvmCross / CrossCore
+- Describe / finish implementation of the Preloader for ViewModel reusage in general (optional for Conditions)
