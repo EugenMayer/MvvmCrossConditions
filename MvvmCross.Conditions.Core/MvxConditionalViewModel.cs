@@ -16,19 +16,18 @@ namespace MvvmCross.Conditions.Core
         protected bool ShowViewModel<TViewModel>(bool viewModelshouldHandleError)
             where TViewModel : IMvxViewModel
         {
-            return ShowViewModelConditionalImpl<TViewModel>(viewModelshouldHandleError, new MvxViewModelRequest(typeof(TViewModel), null, null, null));
+            return ShowViewModelConditionalImpl<TViewModel>(viewModelshouldHandleError, typeof(TViewModel), null, null, null);
         }
 
         protected bool ShowViewModel<TViewModel>(bool viewModelshouldHandleError, IDictionary<string, string> parameterValues)
             where TViewModel : IMvxViewModel
         {
-            return ShowViewModelConditionalImpl<TViewModel>(viewModelshouldHandleError, new MvxViewModelRequest(typeof(TViewModel), new MvxBundle(parameterValues), null, null));
+            return ShowViewModelConditionalImpl<TViewModel>(viewModelshouldHandleError, typeof(TViewModel), new MvxBundle(parameterValues), null, null);
         }
 
         protected bool ShowViewModelConditionalImpl<TViewModel>(bool viewModelshouldHandleError, Type viewModelType, IMvxBundle parameterBundle, IMvxBundle presentationBundle, MvxRequestedBy requestedBy)
         {
             MvxTrace.Trace("Showing ViewModel {0}", viewModelType.Name);
-            var test = this;
             var viewDispatcher = ViewDispatcher as IMvxConditionalDispatcher;
             // TODO: maybe check for null here, means, there is no IMvxConditionalDispatcher compatible dispatcher, but it is required for this calle
             if (viewDispatcher != null)

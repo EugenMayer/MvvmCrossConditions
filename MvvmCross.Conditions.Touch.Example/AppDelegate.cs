@@ -4,6 +4,7 @@ using System.Linq;
 
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using Cirrious.MvvmCross.Touch.Platform;
 
 namespace MvvmCross.Conditions.Touch.Example
 {
@@ -11,7 +12,7 @@ namespace MvvmCross.Conditions.Touch.Example
     // User Interface of the application, as well as listening (and optionally responding) to
     // application events from iOS.
     [Register("AppDelegate")]
-    public partial class AppDelegate : UIApplicationDelegate
+    public partial class AppDelegate : MvxApplicationDelegate
     {
         // class-level declarations
         UIWindow window;

@@ -5,6 +5,7 @@ using MvvmCross.Conditions.Core;
 using MonoTouch.UIKit;
 using Cirrious.MvvmCross.Touch.Views.Presenters;
 using Cirrious.MvvmCross.Views;
+using MvvmCross.Conditions.Core.Example;
 
 namespace MvvmCross.Conditions.Touch.Example
 {
@@ -34,6 +35,11 @@ namespace MvvmCross.Conditions.Touch.Example
         protected override IMvxViewDispatcher CreateViewDispatcher()
         {
             return new ConditionalTouchDispatcher(Presenter);
+        }
+
+        protected override IMvxApplication CreateApp()
+        {
+            return new ExampleApp();
         }
     }
 }

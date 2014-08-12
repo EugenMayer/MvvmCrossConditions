@@ -41,6 +41,7 @@
     <Compile Include="Example\ThirdViewModel.cs" />
     <Compile Include="Example\EntryViewModelComplex.cs" />
     <Compile Include="Example\EntryViewModelSimple.cs" />
+    <Compile Include="Example\ExampleApp.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
