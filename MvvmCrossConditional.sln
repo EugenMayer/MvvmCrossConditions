@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmCross.Conditions.Touch", "MvvmCross.Conditions.Touch\MvvmCross.Conditions.Touch.csproj", "{279D1042-6BAE-49C2-AC65-50B93291DEB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmCross.Conditions.Core", "MvvmCross.Conditions.Core\MvvmCross.Conditions.Core.csproj", "{5D324AC3-CCE3-4EEC-B03F-2CF6651D5D45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{279D1042-6BAE-49C2-AC65-50B93291DEB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{279D1042-6BAE-49C2-AC65-50B93291DEB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{279D1042-6BAE-49C2-AC65-50B93291DEB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{279D1042-6BAE-49C2-AC65-50B93291DEB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D324AC3-CCE3-4EEC-B03F-2CF6651D5D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D324AC3-CCE3-4EEC-B03F-2CF6651D5D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D324AC3-CCE3-4EEC-B03F-2CF6651D5D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D324AC3-CCE3-4EEC-B03F-2CF6651D5D45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = MvvmCross.Conditions.Touch\MvvmCross.Conditions.Touch.csproj
+	EndGlobalSection
+EndGlobal
