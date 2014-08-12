@@ -19,10 +19,12 @@ namespace MvvmCross.Conditions.Touch.Example
             _applicationDelegate = applicationDelegate;
         }
 
+        // not needed anymore for the spefici case of "conditional views"
+        /*
         protected override IMvxViewModelLoader CreateViewModelLoader()
         {
             return new PreloaderViewModelLoader();
-        }
+        }*/
 
         protected override IMvxTouchViewPresenter CreatePresenter()
         {

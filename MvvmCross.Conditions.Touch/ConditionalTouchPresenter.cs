@@ -17,24 +17,23 @@ namespace MvvmCross.Conditions.Touch
 
         public override void Show(MvxViewModelRequest request)
         {
-            var loader = Mvx.Resolve<IMvxViewModelLoader>() as IMvxViewModelPreloader;
-            if (request.ViewModelType is IConditionalViewModel) {
+            // TODO: use an as cast with an null check instead?
+            if (ImplementsInterface(request.ViewModelType, typeof(IConditionalViewModel))) {
                 // check condition here
+                var loader = Mvx.Resolve<IMvxViewModelLoader>() as IMvxViewModelPreloader;
                 var viewModel = loader.LoadViewModel(request, null) as IConditionalViewModel;
                 if (viewModel.Precondition() == false) {
                     // EXCEPTION HERE
                 }
                 else {
-                    // save the viewModel as preloaded so it can be reused later in the instantiation of the view
-                    loader.AddPreloadedViewModel(request.ViewModelType.ToString(), viewModel as IMvxViewModel);
                     var view = this.CreateViewControllerFor(request);
+                    // reuse the viewModel
+                    view.ViewModel = viewModel;
                     Show(view);
-                    // we do this for now to minimize sideeffects of preloaded viewmodel - those preloaded viewmodels
-                    // are therefor only 
-                    loader.RemovePreloadedViewModel(request.ViewModelType.ToString());
                 }
             }
             else {
+                // no conditions, classiv way
                 var view = this.CreateViewControllerFor(request);
                 Show(view);
             }
@@ -50,6 +49,17 @@ namespace MvvmCross.Conditions.Touch
                 ShowFirstView(viewController);
             else
                 MasterNavigationController.PushViewController(viewController, true /*animated*/);
+        }
+
+        public bool ImplementsInterface(Type type, Type ifaceType)
+        {
+            Type[] intf = type.GetInterfaces();
+            for (int i = 0; i < intf.Length; i++) {
+                if (intf[i] == ifaceType) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -15,12 +15,17 @@ namespace MvvmCross.Conditions.Core
 
         IMvxViewModel GetPreloadedViewModel(string viewModelType);
     }
-    // TODO: since most of the code is "stolen" from MvxViewModelLoader, since we cannot dirive/override
-    // we could rather decorate instead of code dublication
+
+    // Not really used right now, can be used to implemente persisten ViewModels to optimize performance
+    // by sharing on viewmodel istance to differnt views at different times
+    // basically you call AddPreloadedViewModel to add it to the cache, and remove to remove it.
+    // Use PreloaderViewModelLoader in your protected override IMvxViewModelLoader CreateViewModelLoader() in MvxTouchSetup / Android and the you get the "cached viewmodel" behavior
+
     public class PreloaderViewModelLoader
         : IMvxViewModelPreloader
     {
-
+        // TODO: since most of the code is "stolen" from MvxViewModelLoader, since we cannot dirive/override
+        // we could rather decorate instead of code dublication
         private Dictionary<string, IMvxViewModel> _preloadedViewModels;
 
         public PreloaderViewModelLoader()
