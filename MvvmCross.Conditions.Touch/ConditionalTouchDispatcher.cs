@@ -5,12 +5,13 @@ using Cirrious.MvvmCross.Views;
 using Cirrious.MvvmCross.ViewModels;
 using System.Threading;
 using Cirrious.CrossCore.Platform;
+using MvvmCross.Conditions.Core;
 
 namespace MvvmCross.Conditions.Touch
 {
     // TODO: we could instead of manually syncing the code from MvxTouchViewDispatcher use decoration
     // we cannot simply derive from MvxTouchViewDispatcher since ShowViewModel is not virtual
-    public class ConditionalTouchDispatcher : MvxTouchUIThreadDispatcher, IMvxViewDispatcher
+    public class ConditionalTouchDispatcher : MvxTouchUIThreadDispatcher, IMvxViewDispatcher, IMvxConditionalDispatcher
     {
         private readonly IMvxTouchViewPresenter _presenter;
 
@@ -19,7 +20,8 @@ namespace MvvmCross.Conditions.Touch
             _presenter = presenter;
         }
 
-        public bool ShowViewModel(Cirrious.MvvmCross.ViewModels.MvxViewModelRequest request)
+        // thats an OVERLOAD!, just in case somebody reads way to fast ;)
+        public bool ShowViewModel(MvxViewModelRequest request, bool viewModelShouldHandleError = true)
         {
             Action action = () => {
                 MvxTrace.TaggedTrace("TouchNavigation", "Navigate requested");
@@ -28,6 +30,10 @@ namespace MvvmCross.Conditions.Touch
             return RequestMainThreadAction(action);
         }
 
+        public bool ShowViewModel(MvxViewModelRequest request)
+        {
+            return ShowViewModel(request, true);
+        }
 
         public bool ChangePresentation(MvxPresentationHint hint)
         {

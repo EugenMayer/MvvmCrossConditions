@@ -1,0 +1,7 @@
+bin/
+obj/
+Debug/
+Release/
+*.userprefs
+packages/
+Components/

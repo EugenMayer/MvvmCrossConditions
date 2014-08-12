@@ -5,7 +5,7 @@ namespace  MvvmCross.Conditions
 {
     public interface IConditionalViewModel : IMvxViewModel
     {
-        bool Precondition();
+        bool Precondition(bool shouldHandleError);
     }
 }
 
