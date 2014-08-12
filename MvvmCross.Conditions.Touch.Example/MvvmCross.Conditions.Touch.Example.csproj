@@ -113,5 +113,9 @@
       <Project>{5D324AC3-CCE3-4EEC-B03F-2CF6651D5D45}</Project>
       <Name>MvvmCross.Conditions.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MvvmCross.Conditions.Touch\MvvmCross.Conditions.Touch.csproj">
+      <Project>{279D1042-6BAE-49C2-AC65-50B93291DEB2}</Project>
+      <Name>MvvmCross.Conditions.Touch</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
