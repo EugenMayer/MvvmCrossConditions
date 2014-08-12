@@ -3,6 +3,7 @@ using Cirrious.MvvmCross.ViewModels;
 using Cirrious.CrossCore;
 using Cirrious.CrossCore.Exceptions;
 using System.Collections.Generic;
+using Cirrious.MvvmCross.ViewModels;
 
 namespace MvvmCross.Conditions.Core
 {
