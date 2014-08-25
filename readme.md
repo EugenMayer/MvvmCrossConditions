@@ -19,6 +19,13 @@ Please see the ExampleSetup.cs to see how you enable your app to use the Dispatc
 - ConditionalTouchPresenter this needs to be used to actually have any use of the conditions
 - ConditionalTouchDispatcher example implementation for the dispatcher, can be used out of the box and should be working for your cases in general ( no need to reimplement it)
 
+## How to Use in Viewmodels
+- Implement the interface IConditionalViewModel and if wishing ( see notes ) derive from MvxConditionalViewModel ( optional )
+- implement bool Precondition(bool shouldHandleError); and return true if the view should be loaded. This method is called BEFORE the View is instantiated. Returning false will cancel the view instantiation ( rather let it never happen) 
+- Thats it :) the Precondition and have any logic and since Init() is already happen, you have access to your whole Model and see, if everything is just fine
+
+Hint:The ViewModel is reused after the preconditions is checked, it does not get instantated twice ( when the view gets loaded ) - this is very useful.
+
 ## TODO
 - Use nuget for all the project references for MvvmCross / CrossCore
 - Describe / finish implementation of the Preloader for ViewModel reusage in general (optional for Conditions)
