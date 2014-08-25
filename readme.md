@@ -11,25 +11,28 @@ See the examples in .Core and in .Touch.Example to understand the workflow and i
 # How to use and implement (developers)
 It might look complicated, but its actually very easy. The first setup ( replacing dispatcher/presenter) is a first hurdle, but then every viewmodel is just on method - thats it.
 
-## Do this in your Core (platform indepeneden)
-- Implement the interface IConditionalViewModel and if wishing ( see notes ) derive from MvxConditionalViewModel ( optional )
-- implement bool Precondition(bool shouldHandleError); and return true if the view should be loaded. This method is called BEFORE the View is instantiated. Returning false will cancel the view instantiation ( rather let it never happen) 
+## Core: Do this in your core project (platform independend) (once)
+- Add MvvmCross.Conditions.Core as a project reference
 - IMvxConditionalDispatcher this needs to be implemented by your platformDispatcher, for Touch use the ConditionalTouchDispatcher which is already implemented
-
-- Thats it :) the Precondition and have any logic and since Init() is already happen, you have access to your whole Model and see, if everything is just fine
 Hint:The ViewModel is reused after the preconditions is checked, it does not get instantated twice ( when the view gets loaded ) - this is very useful.
 
-## Touch
+## Core: Do this for every ViewModel you like (for every ViewModel)
+- Implement the interface IConditionalViewModel and if wishing ( see notes ) derive from MvxConditionalViewModel ( optional )
+- implement bool Precondition(bool shouldHandleError); and return true if the view should be loaded. This method is called BEFORE the View is instantiated. Returning false will cancel the view instantiation ( rather let it never happen) 
+- Thats it :) the Precondition and have any logic and since Init() is already happen, you have access to your whole Model and see, if everything is just fine
+
+## Touch: Do this in your ios project (once)
 
 Please see the ExampleSetup.cs to see how you enable your app to use the Dispatcher and Presenter described below
+- Add MvvmCross.Conditions.Touch as a project reference
 - ConditionalTouchPresenter this needs to be used to actually have any use of the conditions
 - ConditionalTouchDispatcher example implementation for the dispatcher, can be used out of the box and should be working for your cases in general ( no need to reimplement it)
 
-## Droid
+## Droid: Do this in your Android project (once)
 (same as Touch, see there)
+- Add MvvmCross.Conditions.Driod as a project reference
 - ConditionalDroidPresenter this needs to be used to actually have any use of the conditions
-
-
+- ConditionalDroidDispatcher example implementation for the dispatcher, can be used out of the box and should be working for your cases in general ( no need to reimplement it)
 
 # TODO
 - Use nuget for all the project references for MvvmCross / CrossCore
