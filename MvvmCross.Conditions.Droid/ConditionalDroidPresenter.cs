@@ -64,7 +64,7 @@ namespace MvvmCross.Conditions.Droid
                     // see MvxAndroidViewsContainer.TryGetEmbeddedViewModel
                     var key = Mvx.Resolve<IMvxChildViewModelCache>().Cache(viewModel);
                     Bundle extras = intent.Extras;
-                    extras.PutInt("MvxSubViewModelKey", key); // MvxSubViewModelKey is a special static key.. we cant use MvxAndroidViewsContainer.SubViewModelKey since its static
+                    extras.PutInt("MvxSubViewModelKey", key); // MvxSubViewModelKey is a special static key.. we cant use MvxAndroidViewsContainer.SubViewModelKey since its static 
                     intent.PutExtras(extras);
                     Show(intent);
                 }
